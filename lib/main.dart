@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projetoexemplo/aula12/model/carrinho_model.dart';
 import 'package:projetoexemplo/aula12/view/cardapio_view.dart';
 import 'package:projetoexemplo/aula12/view/pedido_view.dart';
+import 'package:projetoexemplo/aula13/theme/color_schemes.g.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -19,9 +20,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(colorScheme: darkColorScheme, useMaterial3: true),
+      darkTheme: ThemeData(colorScheme: darkColorScheme, useMaterial3: true),
       home: const CardapioView(),
       routes: {
         '/pedidos': (context) => const PedidoView(),

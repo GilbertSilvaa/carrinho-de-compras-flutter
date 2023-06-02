@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projetoexemplo/aula12/model/carrinho_model.dart';
+import 'package:projetoexemplo/aula13/widgets/card_carrinho.dart';
 import 'package:provider/provider.dart';
 
 class PedidoView extends StatelessWidget {
@@ -20,12 +21,15 @@ class PedidoView extends StatelessWidget {
               itemBuilder: (context, index) {
                 var produto = carrinho.produtos[index];
 
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(carrinho.produtos[index].nome),
-                    Text('R\$ ${produto.preco.toStringAsFixed(2)}')
-                  ],
+                return Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 8,
+                  ),
+                  child: CardCarrinho(
+                    nome: produto.nome,
+                    preco: produto.preco,
+                  ),
                 );
               },
             ),
@@ -36,7 +40,7 @@ class PedidoView extends StatelessWidget {
                 const SizedBox(width: 8),
                 Text('R\$ ${carrinho.valorTotal}')
               ],
-            )
+            ),
           ],
         ),
       ),
